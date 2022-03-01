@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --green: rgb(15, 92, 8);
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+body {
+    background-color: #3a3a3a;
+    overflow: hidden;
+}
+
+.conteiner {
+    display: block;
+    position: absolute;
+    width: 100%;
+    background-color: #3a3a3a;
+    transition: .5s;
+}
+
+
+
+.menu {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    transform: translateX(-100%);
+    transition: .7s;
+}
+
+.menu li {
+    cursor: pointer;
+    transition: .3s;
+}
+
+.menu li:hover {
+    transform: scale(1.1);
+}
+
+.menu li b {
+    color: rgb(104, 194, 131);
+}
+
+.close-menu {
+    display: block;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    padding: 5px;
+    font-size: 1.3em;
+    transform: translateX(500%);
+    transition: .7s;
+    z-index: 10;
+    cursor: pointer;
+}
+
+
+
+
+.menu-button {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu-button a {
+    font-size: 4em;
+    letter-spacing: 5px;
+    line-height: 1em;
+    text-decoration: none;
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+    color: transparent;
+    text-transform: uppercase;
+}
+
+.menu-button a::before {
+    content: attr(data-text);
+    position: absolute;
+    color: #fff;
+    width: 0%;
+    overflow: hidden;
+    transition: width .4s;
+    border-right: 8px solid black;
+    background-color: #3a3a3a;
+}
+
+.menu-button a:hover::before {
+    width: 100%;
+}
+
+.conteiner-con-reserva {
+    overflow: hidden;
+}
+
+.conteiner-con-reserva .etiqueta-reserva {
+    display: block;
+    position: absolute;
+    background: #fff;
+    font-size: 2em;
+    letter-spacing: 5px;
+    line-height: 1em;
+    padding: 10px 100px;
+    transform: rotate(-30deg) translateX(-90px) translateY(-5px);
+}
+
+.icon-title {
+    display: block;
+    position: absolute;
+    left: 40%;
+    top: 30px;
+    transform: translateX(-50%);
+    letter-spacing: 1em;
+    color: #fff;
+    font-weight: lighter;
+    font-size: 18px;
+    text-align: left;
+    line-height: 35px;
+}
+
+
+
+.conteiner-turnos {
+    display: block;
+    min-height: 100vh;
+    transform: translateX(100%);
+}
+
+.conteiner-turnos .back-button {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+
+
+/*CONTROL DE CAPAS*/
+.conteiner-sin-reserva {
+    display: block;
+}
+
+.conteiner-con-reserva {
+    display: none;
+}
+
+.conteiner-turnos {
+    display: block;
+}
