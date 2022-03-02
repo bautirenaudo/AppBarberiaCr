@@ -51,6 +51,10 @@
             const fecha = e.querySelector("b").id;
             document.querySelector(".dia-seleccionado").textContent = dateSelected + " " + fecha;
 
+            document.querySelector(".capa-loading-turnos").style.display = "block";
+            setTimeout(() => {
+                document.querySelector(".capa-loading-turnos").style.display = "none";
+            }, 2000);
 
             document.querySelector(".conteiner-turnos").style.cssText = "transform: translateX(0%);";
             document.querySelector(".conteiner-home").style.cssText = "transform: translateX(-100%);";
@@ -62,11 +66,45 @@
         document.querySelector(".conteiner-turnos").style.cssText = "transform: translateX(100%);";
     })
 
-    window.addEventListener("click",(e)=>{
-        if(e.target.classList.contains("seleccionar")){
+    document.querySelector(".cancelar-reserva-button").addEventListener("click", () => {
+        document.querySelector(".capa-sure").style.display = "block";
+        document.querySelector(".capa-sure .si").onclick = () => {
+            document.querySelector(".capa-cancelar-reserva").style.display = "block";
+            setTimeout(() => {
+                document.querySelector(".capa-cancelar-reserva").style.display = "none";
+            }, 2000);
+
             document.querySelector(".conteiner-home").style.cssText = "transform: translateX(0%);";
-            document.querySelector(".conteiner-turnos").style.display = "none";
-            document.querySelector(".conteiner-con-reserva").style.display = "block";
+            document.querySelector(".conteiner-turnos").style.cssText = "transform: translateX(100%);";
+            document.querySelector(".conteiner-turnos").style.display = "block";
+            document.querySelector(".conteiner-con-reserva").style.display = "none";
+            document.querySelector(".menu").style.cssText = "transform: translateX(-100%);";
+            document.querySelector(".close-menu").style.cssText = "transform: translateX(500%);";
+
+            document.querySelector(".capa-sure").style.display = "none";
+        }
+        document.querySelector(".capa-sure .no").onclick = () => {
+            document.querySelector(".capa-sure").style.display = "none";
+        }
+    })
+
+    /*document.querySelector(".configuration-button").addEventListener("click",()=>{
+        
+    })*/
+
+    window.addEventListener("click", (e) => {
+        if (e.target.classList.contains("seleccionar")) {
+            document.querySelector(".capa-sure").style.display = "block";
+            document.querySelector(".capa-sure .si").onclick = () => {
+                document.querySelector(".conteiner-home").style.cssText = "transform: translateX(0%);";
+                document.querySelector(".conteiner-turnos").style.display = "none";
+                document.querySelector(".conteiner-con-reserva").style.display = "block";
+
+                document.querySelector(".capa-sure").style.display = "none";
+            }
+            document.querySelector(".capa-sure .no").onclick = () => {
+                document.querySelector(".capa-sure").style.display = "none";
+            }
         }
     })
 
