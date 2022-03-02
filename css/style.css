@@ -7,6 +7,7 @@
 
 :root {
     --green: rgb(15, 92, 8);
+    --yellow: rgb(251, 255, 197);
 }
 
 li {
@@ -25,7 +26,7 @@ button {
 
 body {
     background-color: #3a3a3a;
-    overflow: hidden;
+
 }
 
 .conteiner {
@@ -49,6 +50,7 @@ body {
     color: #fff;
     transform: translateX(-100%);
     transition: .7s;
+    padding-bottom: 50px;
 }
 
 .menu li {
@@ -61,7 +63,7 @@ body {
 }
 
 .menu li b {
-    color: rgb(104, 194, 131);
+    color: var(--yellow);
 }
 
 .close-menu {
@@ -89,7 +91,7 @@ body {
 }
 
 .menu-button a {
-    font-size: 4em;
+    font-size: 3.5em;
     letter-spacing: 5px;
     line-height: 1em;
     text-decoration: none;
@@ -107,11 +109,29 @@ body {
     transition: width .4s;
     border-right: 8px solid black;
     background-color: #3a3a3a;
+
+    animation: menuButton 5s ease-in-out infinite;
 }
 
-.menu-button a:hover::before {
-    width: 100%;
+@keyframes menuButton {
+    from {
+        width: 0;
+    }
+
+    20% {
+        width: 100%;
+    }
+
+    60% {
+        width: 100%;
+    }
+
+    80% {
+        width: 0;
+    }
 }
+
+
 
 .conteiner-con-reserva {
     overflow: hidden;
@@ -157,6 +177,48 @@ body {
     font-size: 30px;
     color: #fff;
     cursor: pointer;
+}
+
+.conteiner-turnos .dia-seleccionado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    font-size: 25px;
+    color: #fff;
+}
+
+.conteiner-turnos p {
+    display: block;
+    margin-left: 50px;
+    color: rgb(255, 255, 255);
+    font-weight: lighter;
+    font-size: 13px;
+}
+
+.conteiner-turnos .turnos-caja {
+    display: block;
+    max-width: 600px;
+    margin: 0 auto;
+    height: 100%;
+    padding-bottom: 150px;
+    overflow-y: auto;
+}
+
+.conteiner-turnos .turnos-caja li {
+    display: flex;
+    justify-content: space-around;
+    margin: 35px 0;
+    color: rgb(255, 255, 255);
+}
+
+.conteiner-turnos .turnos-caja li p {
+    cursor: pointer;
+    color: var(--yellow);
+}
+
+.conteiner-turnos .turnos-caja li p:active {
+    background-color: rgb(78, 78, 30);
 }
 
 
