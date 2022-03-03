@@ -35,7 +35,7 @@ body {
     width: 100%;
     height: 100%;
     backdrop-filter: blur(8px);
-    z-index: 800;
+    z-index: 950;
 }
 
 .conteiner-sure {
@@ -54,7 +54,7 @@ body {
 
 .conteiner-sure p {
     display: block;
-    margin: 50px 0;
+    margin: 30px 0;
     font-size: 20px;
 }
 
@@ -120,11 +120,11 @@ body {
     }
 }
 
-.capa-cancelar-reserva{
+.capa-cancelar-reserva {
     display: none;
 }
 
-.capa-cancelar-reserva-conteiner{
+.capa-cancelar-reserva-conteiner {
     display: grid;
     place-content: center;
     text-align: center;
@@ -137,29 +137,67 @@ body {
     z-index: 950;
 }
 
-.capa-cancelar-reserva-conteiner p{
+.capa-cancelar-reserva-conteiner p {
     display: block;
     color: #fff;
     margin-bottom: 50px;
     text-transform: uppercase;
     font-weight: lighter;
+
+    animation: fadeRight .6s ease-in-out;
 }
 
-.capa-cancelar-reserva-conteiner .circle{
+.capa-cancelar-reserva-conteiner .circle {
     display: grid;
     place-content: center;
     width: 300px;
     height: 300px;
     border-radius: 50%;
     border: 15px solid #fff;
+
+    animation: fadeUp .6s ease-in-out;
 }
 
-.configuration-button{
+@keyframes fadeUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeRight {
+    from {
+        transform: translateX(100px);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.configuration-button {
     display: block;
     position: fixed;
     top: 20px;
     right: 20px;
     z-index: 900;
+    cursor: pointer;
+}
+
+.back-button {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    color: #fff;
     cursor: pointer;
 }
 
@@ -216,6 +254,7 @@ body {
 }
 
 .menu-button a {
+    display: block;
     font-size: 3.5em;
     letter-spacing: 5px;
     line-height: 1em;
@@ -243,11 +282,11 @@ body {
         width: 0;
     }
 
-    5% {
+    10% {
         width: 0;
     }
 
-    25% {
+    40% {
         width: 100%;
     }
 
@@ -260,6 +299,21 @@ body {
     }
 }
 
+
+
+.conteiner-sin-reserva .icon-title {
+    display: block;
+    position: absolute;
+    left: 40%;
+    top: 30px;
+    transform: translateX(-50%);
+    letter-spacing: 1em;
+    color: #fff;
+    font-weight: lighter;
+    font-size: 18px;
+    text-align: left;
+    line-height: 35px;
+}
 
 
 .conteiner-con-reserva {
@@ -277,7 +331,7 @@ body {
     transform: rotate(-30deg) translateX(-90px) translateY(-5px);
 }
 
-.conteiner-con-reserva .info{
+.conteiner-con-reserva .info {
     display: block;
     position: absolute;
     left: 50%;
@@ -285,25 +339,25 @@ body {
     transform: translate(-50%, -50%);
 }
 
-.conteiner-con-reserva .info .fecha-reservada, .hora-reservada, .nombre{
+.conteiner-con-reserva .info .fecha-reservada, .hora-reservada, .nombre {
     display: block;
-   
+
     color: #fff;
 }
 
-.conteiner-con-reserva .info .fecha-reservada{
+.conteiner-con-reserva .info .fecha-reservada {
     font-size: 30px;
 }
 
-.conteiner-con-reserva .info .hora-reservada{
+.conteiner-con-reserva .info .hora-reservada {
     font-size: 25px;
 }
 
-.conteiner-con-reserva .info .nombre{
+.conteiner-con-reserva .info .nombre {
     font-size: 20px;
 }
 
-.conteiner-con-reserva .cancelar-reserva-button{
+.conteiner-con-reserva .cancelar-reserva-button {
     display: block;
     position: absolute;
     width: 180px;
@@ -316,20 +370,34 @@ body {
     font-weight: 600;
 }
 
-.icon-title {
-    display: block;
-    position: absolute;
-    left: 40%;
-    top: 30px;
-    transform: translateX(-50%);
-    letter-spacing: 1em;
-    color: #fff;
-    font-weight: lighter;
-    font-size: 18px;
-    text-align: left;
-    line-height: 35px;
+
+.conteiner-configuration {
+    text-align: center;
+    z-index: 100;
 }
 
+.conteiner-configuration p {
+    margin-top: 50px;
+    margin-bottom: 60px;
+    margin-top: 100px;
+    font-size: 20px;
+    color: var(--yellow);
+}
+
+.conteiner-configuration .field-div {
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+}
+
+.conteiner-configuration .field {
+    margin-right: 10px;
+    color: #fff;
+}
+
+.conteiner-configuration .value {
+    color: rgb(206, 206, 206);
+}
 
 
 .conteiner-turnos {
@@ -337,15 +405,7 @@ body {
     transform: translateX(100%);
 }
 
-.conteiner-turnos .back-button {
-    display: block;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 30px;
-    color: #fff;
-    cursor: pointer;
-}
+
 
 .conteiner-turnos .dia-seleccionado {
     display: flex;
@@ -404,4 +464,8 @@ body {
 
 .conteiner-turnos {
     display: block;
+}
+
+.conteiner-configuration {
+    display: none;
 }

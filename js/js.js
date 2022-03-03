@@ -61,12 +61,27 @@
         })
     })
 
-    document.querySelector(".back-button").addEventListener("click", () => {
+    document.querySelector(".back-button-turnos").addEventListener("click", () => {
         document.querySelector(".conteiner-home").style.cssText = "transform: translateX(0%);";
         document.querySelector(".conteiner-turnos").style.cssText = "transform: translateX(100%);";
     })
 
+    document.querySelector(".back-button-configuration").addEventListener("click", () => {
+        document.querySelector(".conteiner-configuration").style.display="none";
+        document.querySelector(".configuration-button").style.display="block";
+    })
+
+    document.querySelector(".configuration-button").addEventListener("click",()=>{
+        document.querySelector(".conteiner-configuration").style.display="block";
+        document.querySelector(".configuration-button").style.display="none";
+    })
+
     document.querySelector(".cancelar-reserva-button").addEventListener("click", () => {
+        const diaReservado = document.querySelector(".conteiner-con-reserva .fecha-reservada").textContent;
+        const horaReservado = document.querySelector(".conteiner-con-reserva .hora-reservada").textContent;
+        document.querySelector(".capa-sure .fecha").textContent = diaReservado;
+        document.querySelector(".capa-sure .hora").textContent = horaReservado;
+
         document.querySelector(".capa-sure").style.display = "block";
         document.querySelector(".capa-sure .si").onclick = () => {
             document.querySelector(".capa-cancelar-reserva").style.display = "block";
@@ -95,10 +110,16 @@
     window.addEventListener("click", (e) => {
         if (e.target.classList.contains("seleccionar")) {
             document.querySelector(".capa-sure").style.display = "block";
+            const horaSeleccionada = e.target.closest("li").querySelector("div").textContent
+            const diaSeleccionado = document.querySelector(".dia-seleccionado").textContent;
+            document.querySelector(".capa-sure .fecha").textContent = diaSeleccionado;
+            document.querySelector(".capa-sure .hora").textContent = horaSeleccionada;
             document.querySelector(".capa-sure .si").onclick = () => {
                 document.querySelector(".conteiner-home").style.cssText = "transform: translateX(0%);";
                 document.querySelector(".conteiner-turnos").style.display = "none";
                 document.querySelector(".conteiner-con-reserva").style.display = "block";
+                document.querySelector(".conteiner-con-reserva .fecha-reservada").textContent = diaSeleccionado;
+                document.querySelector(".conteiner-con-reserva .hora-reservada").textContent = horaSeleccionada;
 
                 document.querySelector(".capa-sure").style.display = "none";
             }
