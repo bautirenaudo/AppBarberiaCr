@@ -1,0 +1,470 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --yellow: rgb(251, 255, 197);
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+body {
+    background-color: #3a3a3a;
+
+}
+
+.alert {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    z-index: 950;
+}
+
+.conteiner-sure {
+    display: block;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    max-width: 500px;
+    height: 250px;
+    border-radius: 20px;
+    background: #fff;
+}
+
+.conteiner-sure p {
+    display: block;
+    margin: 30px 0;
+    font-size: 20px;
+}
+
+.conteiner-sure .si, .conteiner-sure .no {
+    display: block;
+    position: absolute;
+    bottom: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.conteiner-sure .no {
+    display: block;
+    position: absolute;
+    left: 60px;
+    color: #8f8f8f;
+    font-weight: 600;
+}
+
+.conteiner-sure .si {
+    display: block;
+    position: absolute;
+    right: 60px;
+}
+
+.conteiner {
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #3a3a3a;
+    transition: .5s;
+}
+
+.capa-loading-turnos-conteiner {
+    display: grid;
+    place-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #3a3a3a;
+    padding-bottom: 150px;
+}
+
+.capa-loading-turnos .circle {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: transparent;
+    border-top: 2px solid #fff;
+
+    animation: circle .8s infinite ease;
+}
+
+@keyframes circle {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(-350deg);
+    }
+}
+
+.capa-cancelar-reserva {
+    display: none;
+}
+
+.capa-cancelar-reserva-conteiner {
+    display: grid;
+    place-content: center;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #3a3a3a;
+    z-index: 950;
+}
+
+.capa-cancelar-reserva-conteiner p {
+    display: block;
+    color: #fff;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    font-weight: lighter;
+
+    animation: fadeRight .6s ease-in-out;
+}
+
+.capa-cancelar-reserva-conteiner .circle {
+    display: grid;
+    place-content: center;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 15px solid #fff;
+
+    animation: fadeUp .6s ease-in-out;
+}
+
+@keyframes fadeUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeRight {
+    from {
+        transform: translateX(100px);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.configuration-button {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 900;
+    cursor: pointer;
+}
+
+.back-button {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+/*MENU*/
+.menu {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    transform: translateX(-100%);
+    transition: .7s;
+    padding-bottom: 50px;
+}
+
+.menu li {
+    cursor: pointer;
+    transition: .3s;
+}
+
+.menu li:hover {
+    transform: scale(1.1);
+}
+
+.menu li b {
+    color: var(--yellow);
+}
+
+.close-menu {
+    display: block;
+    position: fixed;
+    top: 30px;
+    right: 80px;
+    padding: 5px;
+    font-size: 1.3em;
+    transform: translateX(500%);
+    transition: .7s;
+    z-index: 10;
+    cursor: pointer;
+}
+
+
+
+
+.menu-button {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu-button a {
+    display: block;
+    font-size: 3.5em;
+    letter-spacing: 5px;
+    line-height: 1em;
+    text-decoration: none;
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+    color: transparent;
+    text-transform: uppercase;
+}
+
+.menu-button a::before {
+    content: attr(data-text);
+    position: absolute;
+    color: #fff;
+    width: 0%;
+    overflow: hidden;
+    transition: width .4s;
+    border-right: 8px solid black;
+    background-color: #3a3a3a;
+
+    animation: menuButton 5s ease-in-out infinite;
+}
+
+@keyframes menuButton {
+    from {
+        width: 0;
+    }
+
+    10% {
+        width: 0;
+    }
+
+    40% {
+        width: 100%;
+    }
+
+    60% {
+        width: 100%;
+    }
+
+    80% {
+        width: 0;
+    }
+}
+
+
+
+.conteiner-sin-reserva .icon-title {
+    display: block;
+    position: absolute;
+    left: 40%;
+    top: 30px;
+    transform: translateX(-50%);
+    letter-spacing: 1em;
+    color: #fff;
+    font-weight: lighter;
+    font-size: 18px;
+    text-align: left;
+    line-height: 35px;
+}
+
+
+.conteiner-con-reserva {
+    overflow: hidden;
+}
+
+.conteiner-con-reserva .etiqueta-reserva {
+    display: block;
+    position: absolute;
+    background: #fff;
+    font-size: 2em;
+    letter-spacing: 5px;
+    line-height: 1em;
+    padding: 10px 100px;
+    transform: rotate(-30deg) translateX(-90px) translateY(-5px);
+}
+
+.conteiner-con-reserva .info {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.conteiner-con-reserva .info .fecha-reservada, .hora-reservada, .nombre {
+    display: block;
+
+    color: #fff;
+}
+
+.conteiner-con-reserva .info .fecha-reservada {
+    font-size: 30px;
+}
+
+.conteiner-con-reserva .info .hora-reservada {
+    font-size: 25px;
+}
+
+.conteiner-con-reserva .info .nombre {
+    font-size: 20px;
+}
+
+.conteiner-con-reserva .cancelar-reserva-button {
+    display: block;
+    position: absolute;
+    width: 180px;
+    height: 40px;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--yellow);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+
+.conteiner-configuration {
+    text-align: center;
+    z-index: 100;
+}
+
+.conteiner-configuration p {
+    margin-top: 50px;
+    margin-bottom: 60px;
+    margin-top: 100px;
+    font-size: 20px;
+    color: var(--yellow);
+}
+
+.conteiner-configuration .field-div {
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+}
+
+.conteiner-configuration .field {
+    margin-right: 10px;
+    color: #fff;
+}
+
+.conteiner-configuration .value {
+    color: rgb(206, 206, 206);
+}
+
+
+.conteiner-turnos {
+    display: block;
+    transform: translateX(100%);
+}
+
+
+
+.conteiner-turnos .dia-seleccionado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    font-size: 25px;
+    color: #fff;
+}
+
+.conteiner-turnos p {
+    display: block;
+    margin-left: 50px;
+    color: rgb(255, 255, 255);
+    font-weight: lighter;
+    font-size: 13px;
+}
+
+.conteiner-turnos .turnos-caja {
+    display: block;
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    height: 100%;
+    padding-bottom: 150px;
+    overflow-y: auto;
+}
+
+.conteiner-turnos .turnos-caja li {
+    display: flex;
+    justify-content: space-around;
+    margin: 35px 0;
+    color: rgb(255, 255, 255);
+}
+
+.conteiner-turnos .turnos-caja li p {
+    cursor: pointer;
+    color: var(--yellow);
+}
+
+.conteiner-turnos .turnos-caja li p:active {
+    background-color: rgb(78, 78, 30);
+}
+
+
+
+
+/*CONTROL DE CONTEINERS*/
+.conteiner-sin-reserva {
+    display: block;
+}
+
+.conteiner-con-reserva {
+    display: none;
+}
+
+.conteiner-turnos {
+    display: block;
+}
+
+.conteiner-configuration {
+    display: none;
+}

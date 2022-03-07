@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+}
+
+:root {
+    --yellow: rgb(251, 255, 197);
+}
+
+body {
+    background-color: #3a3a3a;
+
+}
+
+button {
+    cursor: pointer;
+}
+
+button, input {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+input {
+    color: #000;
+}
+
+
+
+
+
+.conteiner-sign-in, .conteiner-sign-up {
+    display: block;
+    text-align: center;
+}
+
+.conteiner-sign-in h2, .conteiner-sign-up h2 {
+    font-weight: lighter;
+    margin-bottom: 50px;
+}
+
+.form-div {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 500px;
+    height: 100%;
+    width: 100%;
+    max-width: 300px;
+}
+
+.form-div form {
+    display: grid;
+    place-content: center;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+form input {
+    display: block;
+    border-radius: 10px;
+    width: 200px;
+    height: 40px;
+    margin: 5px;
+    padding: 10px;
+    font-size: 13px;
+}
+
+form .aux {
+    display: flex;
+    align-items: center;
+}
+
+.form-div button {
+    height: 30px;
+    background-color: var(--yellow);
+    margin-top: 30px;
+    color: #000;
+}
+
+.form-div p{
+    margin-bottom: -20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*CONTROL DE CAPAS*/
+.conteiner-sign-in {
+    display: block;
+}
+
+.conteiner-sign-up {
+    display: none;
+}

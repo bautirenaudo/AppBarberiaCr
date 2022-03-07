@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign</title>
+
+    <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="manifest" href="../manifest.json">
+</head>
+
+<body>
+
+    <div class="conteiner">
+
+        <div class="conteiner-sign-in">
+
+            <div class="form-div">
+                <h2>Iniciar sesión</h2>
+                <form action="">
+                    <input class="email-input" type="email" placeholder="Email:" required>
+                    <div class="aux">
+                        <input type="password" placeholder="Contraseña:" required>
+                        <span>eye</span>
+                    </div>
+                    <button type="submit">Iniciar sesión</button>
+
+                </form>
+                <p>¿No tienes una cuenta?</p>
+                <button class="go-sign-up" style="width: 120px;">Crear cuenta</button>
+            </div>
+
+        </div>
+
+        <div class="conteiner-sign-up">
+
+            <div class="form-div">
+                <h2>Crear cuenta</h2>
+                <form action="">
+                    <input class="email-input" type="email" placeholder="Email:" required>
+                    <input class="nombre-input" type="text" placeholder="Nombre y apellido:" required>
+                    <input class="numero-input" type="number" placeholder="Numero de teléfono:" required>
+                    <div class="aux">
+                        <input type="password" placeholder="Contraseña:" required>
+                        <span>eye</span>
+                    </div>
+                    <button type="submit">Crear cuenta</button>
+
+                </form>
+                <p>¿Ya tienes una cuenta existente?</p>
+                <button class="go-sign-in" style="width: 120px;">Iniciar sesión</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyB8qF5UWDG7vZpJmpwLkjuS9sJ7s85DcBg",
+            authDomain: "appbarberiacr.firebaseapp.com",
+            projectId: "appbarberiacr",
+            storageBucket: "appbarberiacr.appspot.com",
+            messagingSenderId: "447624446882",
+            appId: "1:447624446882:web:0f9c1e3a4516accf9f68fb",
+            measurementId: "G-HS0ZT8Z54K"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        const auth = firebase.auth();
+        const fs = firebase.firestore();
+    </script>
+
+    <script src="js/js.js"></script>
+</body>
+
+</html>
